@@ -40,7 +40,7 @@ pip install ldap3 impacket
 ### Basic Syntax
 
 ```bash
-python password_spray.py --users <users_file> --password <password> --domain <domain> --protocol <protocol> [--hosts <hosts> | --hosts-file <hosts_file>] [--delay-min <min> --delay-max <max>] [--output-file <output_file>]
+python tugaspray.py --users <users_file> --password <password> --domain <domain> --protocol <protocol> [--hosts <hosts> | --hosts-file <hosts_file>] [--delay-min <min> --delay-max <max>] [--output-file <output_file>]
 ```
 
 ### Arguments
@@ -62,19 +62,19 @@ python password_spray.py --users <users_file> --password <password> --domain <do
 ### Password Spray via LDAP (Domain Controllers):
 
 ```bash
-python password_spray.py --users users.txt --password P@ssw0rd --domain CORP --hosts dc1.corp.local,dc2.corp.local --protocol ldap --delay-min 2 --delay-max 20 --output-file successes.txt
+python tugaspray.py --users users.txt --password P@ssw0rd --domain CORP --hosts dc1.corp.local,dc2.corp.local --protocol ldap --delay-min 2 --delay-max 20 --output-file successes.txt
 ```
 
 ### Password Spray via SMB (File Servers):
 
 ```bash
-python password_spray.py --users users.txt --password P@ssw0rd --domain CORP --hosts fileserver1.corp.local,fileserver2.corp.local --protocol smb --delay-min 5 --delay-max 30 --output-file successes.txt
+python tugaspray.py --users users.txt --password P@ssw0rd --domain CORP --hosts fileserver1.corp.local,fileserver2.corp.local --protocol smb --delay-min 5 --delay-max 30 --output-file successes.txt
 ```
 
 ### Password Spray via Kerberos (Domain Controllers):
 
 ```bash
-python password_spray.py --users users.txt --password P@ssw0rd --domain CORP --hosts-file dc_hosts.txt --protocol kerberos --delay-min 3 --delay-max 15 --output-file successes.txt
+python tugaspray.py --users users.txt --password P@ssw0rd --domain CORP --hosts-file dc_hosts.txt --protocol kerberos --delay-min 3 --delay-max 15 --output-file successes.txt
 ```
 
 ## Important Considerations
@@ -95,17 +95,7 @@ python password_spray.py --users users.txt --password P@ssw0rd --domain CORP --h
 - The on-screen output follows the format `[protocol] Successful/Failed login for Username @host`.
 - Successful logins are saved in the file specified by the `--output-file` argument.
 
-## Project Structure
 
-```bash
-password_spray/
-│
-├── password_spray.py       # Main tool script.
-├── README.md               # This file.
-├── users.txt               # Example user list file.
-├── hosts.txt               # Example host list file.
-└── successes.txt           # Example output file for successful logins.
-```
 
 ## Contributions
 
